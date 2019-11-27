@@ -1,2 +1,4 @@
 export { default as HomePage } from './Homepage/HomePage';
-export { default as RecommendPage } from './RecommendPage/RecommendPage';
+export { default as TravelPage } from './TravelPage/TravelPage';
+export { default as AuthPage } from './AuthPage/AuthPage';
+export { default as JoinPage } from './AuthPage/JoinPage';  

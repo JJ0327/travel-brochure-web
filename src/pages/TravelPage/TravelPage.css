@@ -1,0 +1,31 @@
+.travel-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.travel-content {
+  display: flex;
+  margin-top: 5%;
+}
+
+.travle-sidebar__btn {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px #51baa4;
+  color: #51baa4 !important;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 2.5em;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  height: 2.85em;
+  line-height: 2.95em;
+  min-width: 10em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
