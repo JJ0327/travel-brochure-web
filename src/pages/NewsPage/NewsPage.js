@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import NewsHeader from '../../components/NewsHeader/NewsHeader';
+import PageTemplate from '../../components/PageTemplate/PageTemplate';
+import ContentList from '../../components/ContentList';
 
 class NewsPage extends Component {
   render() {
     return (
-      <div className="app">
+      <PageTemplate>
         <NewsHeader />
-        <div className="container">qwer</div>
-      </div>
+        <ContentList />
+      </PageTemplate>
     );
   }
 }
