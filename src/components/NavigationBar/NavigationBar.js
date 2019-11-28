@@ -2,11 +2,13 @@ import React from 'react';
 import LogoIcon from '../../images/LogoIcon.svg';
 import LogoText from '../../images/LogoText.png';
 import './NavigationBar.css';
+// import { Link } from 'react-router-dom';
+// 정호야 부탁할게 --태빈이가 a 태그 Link로 바꿔줘라 ㅎㅎ
 
 const NavigationBar = () => {
-  const handleLogout=() =>{
+  const handleLogout = () => {
     window.localStorage.clear();
-  }
+  };
   return (
     <header className="header">
       <a className="header__logo" href="/">
@@ -18,11 +20,14 @@ const NavigationBar = () => {
       <nav className="header__nav">
         <ul>
           <li>
-            <a className="header__a" href="/travel">
+            <a className="header__a gradientBorder" href="/travel">
               여행지
             </a>
+            <a className="header__a gradientBorder" href="/news">
+              뉴스룸
+            </a>
             <a
-              className="header__a"
+              className="header__a gradientBorder"
               href="/auth"
               onClick={handleLogout}
             >
