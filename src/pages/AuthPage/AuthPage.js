@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import login from './Auth';
-import checkToken from './VerifyToken';
-import saveToken from './SaveToken';
+import login from '../../components/Auth/Auth';
+import checkToken from '../../components/Auth/VerifyToken';
+import saveToken from '../../components/Auth/SaveToken';
+import './AuthPage.css';
 
 const AuthPage = ({ authenticated }) => {
   const [username, setUsername] = useState('');
@@ -39,22 +40,24 @@ const AuthPage = ({ authenticated }) => {
       {flag === 1 && (
         <Redirect to={{ pathname: '/', state: { authenticated } }} />
       )}
-      <h1>Login</h1>
-      <input
-        value={username}
-        onChange={({ target: { value } }) => setUsername(value)}
-        type="text"
-        placeholder="username"
-      />
-      <input
-        value={password}
-        onChange={({ target: { value } }) => setPassword(value)}
-        type="password"
-        placeholder="password"
-      />
-      <button onClick={handleClick} type="button">
-        Login
-      </button>
+      <div className="auth-main">
+        <h1 className="auth-h1">Login</h1>
+        <input
+          value={username}
+          onChange={({ target: { value } }) => setUsername(value)}
+          type="text"
+          placeholder="username"
+        />
+        <input
+          value={password}
+          onChange={({ target: { value } }) => setPassword(value)}
+          type="password"
+          placeholder="password"
+        />
+        <button onClick={handleClick} type="button">
+          Login
+        </button>
+      </div>
     </>
   );
 };

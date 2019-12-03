@@ -1,0 +1,10 @@
+.auth-main {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30%;
+}
+.auth-h1 {
+  font-size: 3em;
+}
