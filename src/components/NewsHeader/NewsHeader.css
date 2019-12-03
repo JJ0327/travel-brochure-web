@@ -15,7 +15,7 @@ div.header > div.title {
 
 div.header > div.title > a {
   display: inline-block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   margin-right: 10px;
 }
 
