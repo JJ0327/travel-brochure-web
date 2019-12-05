@@ -78,7 +78,7 @@ const AuthPage = ({ authenticated }) => {
             <button className="Auth-button" type="button" onClick={handleClick}>
               Log in
             </button>
-            <a href="#" class="discrete">
+            <a href="/join" class="discrete">
               가입된 아이디가 없나요? 지금 가입하세요!
             </a>
           </form>

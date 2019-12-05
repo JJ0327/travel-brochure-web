@@ -7,6 +7,7 @@ import {
   JoinPage,
   AuthPage,
   NewsPage,
+  MapPage,
 } from './pages/index';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         )}
       />
       <Route path="/news" component={NewsPage} />
+      <Route path="/map" component={MapPage} />
       <Route
         path="/auth"
         render={props => <AuthPage {...props} authenticated={authenticated} />}
