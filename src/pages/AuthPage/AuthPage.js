@@ -41,22 +41,27 @@ const AuthPage = ({ authenticated }) => {
         <Redirect to={{ pathname: '/', state: { authenticated } }} />
       )}
       <div className="auth-main">
-        <h1 className="auth-h1">Login</h1>
+        <h1 className="auth-h1">Travel Guide</h1>
         <input
           value={username}
           onChange={({ target: { value } }) => setUsername(value)}
           type="text"
           placeholder="username"
+          className="auth-input"
         />
         <input
           value={password}
           onChange={({ target: { value } }) => setPassword(value)}
           type="password"
           placeholder="password"
+          className="auth-input"
         />
-        <button onClick={handleClick} type="button">
+        <button onClick={handleClick} type="button" align="center" className="auth-btn">
           Login
         </button>
+        <a href="/join" className="auth-a">
+          혹시 계정이 없으신가요?
+        </a>
       </div>
     </>
   );
