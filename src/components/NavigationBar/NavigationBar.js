@@ -3,7 +3,6 @@ import LogoIcon from '../../images/LogoIcon.svg';
 import LogoText from '../../images/LogoText.png';
 import './NavigationBar.css';
 // import { Link } from 'react-router-dom';
-// 정호야 부탁할게 --태빈이가 a 태그 Link로 바꿔줘라 ㅎㅎ
 
 const NavigationBar = () => {
   const handleLogout = () => {
