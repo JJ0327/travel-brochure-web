@@ -2,6 +2,8 @@ div.app > div.container {
   display: flex;
   flex-direction: row;
   position: relative;
-  top: 200px;
+  top: 240px;
   /* height: calc(100vh - 50px); */
+  align-items: center;
+  justify-content: center;
 }

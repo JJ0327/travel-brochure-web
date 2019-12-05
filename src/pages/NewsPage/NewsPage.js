@@ -4,6 +4,7 @@ import ContentList from '../../components/ContentList/ContentList';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import Post from '../../components/Post/Post';
 import { generateId } from '../../utils'; // 랜덤 ID 생성 함수
+import './NewsPage.css';
 
 class NewsPage extends Component {
   state = {
