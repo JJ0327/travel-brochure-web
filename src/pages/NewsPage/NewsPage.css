@@ -7,3 +7,7 @@ div.app > div.container {
   align-items: center;
   justify-content: center;
 }
+
+#root {
+  background-color: #fff;
+}

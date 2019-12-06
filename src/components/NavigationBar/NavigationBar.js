@@ -19,6 +19,9 @@ const NavigationBar = () => {
       <nav className="header__nav">
         <ul>
           <li>
+            <a className="header__a gradientBorder" href="/map">
+              지도
+            </a>
             <a className="header__a gradientBorder" href="/travel">
               여행지
             </a>

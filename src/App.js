@@ -8,6 +8,7 @@ import {
   AuthPage,
   NewsPage,
   MapPage,
+  NotFoundPage,
 } from './pages/index';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <TravelPage {...props} authenticated={authenticated} />
         )}
       />
+      <Route path="/NotFound" component={NotFoundPage} />
       <Route path="/news" component={NewsPage} />
       <Route path="/map" component={MapPage} />
       <Route
