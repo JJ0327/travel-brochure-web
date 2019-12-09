@@ -1,68 +1,82 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import NewsHeader from '../../components/NewsHeader/NewsHeader';
-import ContentList from '../../components/ContentList/ContentList';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
-import Post from '../../components/Post/Post';
-import { generateId } from '../../utils'; // 랜덤 ID 생성 함수
 import './NewsPage.css';
+import { SERVER } from './../../config/config.json';
+import Time from 'react-time';
+import Axios from 'axios';
 
-class NewsPage extends Component {
-  state = {
-    posts: [
-      {
-        id: '0',
-        title: '제목',
-        contetns: '내용',
-      },
-    ],
-    activeId: '0',
-  };
+const NewsPage = ({ img, title, text, place, created_at, imgUrl, owner }) => {
+  const [postList, setPostList] = useState([]);
+  let postArray = [];
+  let imagesArray = [];
 
-  // 보고있는 포스트 표시
-  handleListItemClick = id => {
-    this.setState({ activeId: id });
-  };
+  const getPost = useCallback(async () => {
+    const data = await Axios.get(`${SERVER}/api/post`);
+    postArray = await data.post;
+    imagesArray = await data.post.images;
+    await handleMatchPost();
+  }, []);
 
-  handleEditPost = (type, e) => {
-    const posts = [...this.state.posts];
+  const handleMatchPost = async () => {
+    let array = [];
+    let data = [];
+    postArray.forEach(item => {
+      imagesArray.forEach(images => {
+        console.log(
+          '****item.id:' +
+            item.id +
+            ' ***** item identify id = ' +
+            item.identifyId +
+            '*****image id*****=' +
+            images.id,
+        );
+        data = {
+          ...item,
+          imgUrl: item.id === images.post ? images.fileName : '',
+        };
+        console.log('data: ', images.fileName);
+      });
 
-    const post = posts.find(item => item.id === this.state.activeId);
-
-    post[type] = e.target.value;
-
-    this.setState({
-      posts,
+      array.push(data);
     });
-  };
 
-  handleDeletePost = () => {
-    const posts = this.state.posts.filter(
-      item => item.id !== this.state.activeId,
-    );
-    this.setState({
-      posts,
-      activeId: posts.length === 0 ? null : posts[0].id,
-    });
-  };
+    console.log('postList', array);
 
-  render() {
-    const { posts, activeId } = this.state;
-    const activePost = posts.filter(item => item.id === activeId)[0];
-    return (
-      <div className="app">
-        <NavigationBar />
-        <NewsHeader />
-        <div className="container">
-          <ContentList
-            posts={posts}
-            activeId={activeId}
-            onListItemClick={this.handleListItemClick}
-          />
-          {posts.length !== 0 && <Post post={activePost} />}
-        </div>
-      </div>
-    );
-  }
-}
+    setPostList(array);
+  };
+  useEffect(() => {
+    getPost();
+  }, [getPost]);
+
+  return (
+    <div className="app">
+      <NavigationBar />
+      <NewsHeader />
+      {postList.map((item, key) => {
+        return (
+          <div className="container" key={key}>
+            <div>
+              <span>작성자: {item.owner}</span>
+              <div>
+                <span>제목: {item.title}</span>
+                <span>
+                  작성한 시간:
+                  <Time value={item.created_at} format="YYYY/MM/DD hh:mm:ss" />
+                </span>
+              </div>
+            </div>
+            <div>
+              <p>내용: {item.text}</p>
+            </div>
+            <div>
+              <img src={item.imgUrl} alt="게시물 이미지"></img>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default NewsPage;
