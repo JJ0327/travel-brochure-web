@@ -8,42 +8,9 @@ import {
   AuthPage,
   NewsPage,
   MapPage,
+  NotFoundPage,
 } from './pages/index';
 
-const posStyle = {
-  top: '40%',
-  left: '40%',
-  position: 'absolute',
-  justifyContent: 'center',
-  alignItem: 'center',
-  textAlign: 'center',
-};
-const NBtnStyle = {
-  borderRadius: '10px',
-  padding: '10px 20px',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  backgroundColor: 'orange',
-};
-
-const Page404 = ({ location, history }) => {
-  return (
-    <div style={posStyle}>
-      <h2>
-        페이지를 찾을 수 없어요!! <br></br>현재 페이지:{' '}
-        <code>{location.pathname}</code>
-      </h2>
-      <button
-        style={NBtnStyle}
-        onClick={() => {
-          history.push('/');
-        }}
-      >
-        메인으로 가기
-      </button>
-    </div>
-  );
-};
 export default function App() {
   const authenticated = window.localStorage.getItem('userInfo');
   return (
@@ -59,9 +26,12 @@ export default function App() {
           <TravelPage {...props} authenticated={authenticated} />
         )}
       />
-      <Route path="/news" component={NewsPage} />
+      <Route
+        path="/news"
+        render={props => <NewsPage {...props} authenticated={authenticated} />}
+      />
       <Route path="/map" component={MapPage} />
-      <Route component={Page404} />
+
       <Route
         path="/auth"
         render={props => <AuthPage {...props} authenticated={authenticated} />}
@@ -70,6 +40,7 @@ export default function App() {
         path="/join"
         render={props => <JoinPage {...props} authenticated={authenticated} />}
       />
+      <Route component={NotFoundPage} />
     </Switch>
   );
 }
