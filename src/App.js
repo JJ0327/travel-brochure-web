@@ -9,6 +9,7 @@ import {
   NewsPage,
   MapPage,
   NotFoundPage,
+  PostPage,
 } from './pages/index';
 
 export default function App() {
@@ -29,6 +30,10 @@ export default function App() {
       <Route
         path="/news"
         render={props => <NewsPage {...props} authenticated={authenticated} />}
+      />
+      <Route
+        path="/posts"
+        render={props => <PostPage {...props} authenticated={authenticated} />}
       />
       <Route path="/map" component={MapPage} />
 
