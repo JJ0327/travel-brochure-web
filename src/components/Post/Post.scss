@@ -1,0 +1,113 @@
+.post-box {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.78rem;
+  line-height: 1em;
+  position: relative;
+  .post-box-img {
+    margin-right: 30px;
+    img {
+      width: 620px;
+      height: 414px;
+      max-width: 100%;
+      vertical-align: middle;
+      border-style: none;
+    }
+  }
+  .post-box-content {
+    flex-grow: 2;
+    flex-shrink: 0;
+    .post-box-content-place {
+      flex-wrap: wrap;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 13px;
+      margin-bottom: 13px;
+      -webkit-box-align: end;
+      align-items: flex-end;
+      text-align: left;
+      span {
+        color: #00469b;
+        background-color: transparent;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 13px;
+      }
+    }
+    .post-box-content-title {
+      margin-bottom: 10px;
+      word-wrap: break-word;
+      line-height: 1em;
+      font-weight: bold;
+      text-align: left;
+      h2 {
+        font-size: 1.9rem;
+        line-height: 1.25em;
+        margin: 0;
+        word-break: break-word;
+      }
+    }
+    .post-box-content-excerpt {
+      color: #888;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.3em;
+      margin-bottom: 40px;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+    .post-box-content-meta {
+      color: #888;
+      -webkit-box-direction: normal;
+      -webkit-box-flex: 1;
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: justify;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      font-size: 13px;
+      font-weight: 400;
+      justify-content: space-between;
+      letter-spacing: 0.25px;
+      line-height: 15px;
+      .author {
+        text-align: left;
+        .author-name {
+          font-weight: 500;
+        }
+      }
+      .divider {
+        margin: 0 4px;
+      }
+      .timeago {
+        text-align: left;
+      }
+      .post-box-content-meta-time-info {
+        margin-top: 20px;
+        display: flex;
+        box-sizing: border-box;
+        .post-box-stats {
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+hr {
+  border-color: #eee;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}

@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PostHeader } from '../../components/index';
 import { PostContainer } from '../../containers/index';
+import NavigationBar from '../../components/NavigationBar/NavigationBar';
+import './PostPage.css';
+import { Redirect } from 'react-router-dom';
 
-class PostPage extends Component {
-  render() {
-    return (
+const PostPage = ({ authenticated }) => {
+  return (
+    <>
+      {authenticated === null && <Redirect to="/auth" />}
       <div>
+        <NavigationBar />
         <PostHeader />
-        <div>
-          <PostContainer />
-        </div>
+        <PostContainer />
       </div>
-    );
-  }
-}
+    </>
+  );
+};
 
 export default PostPage;

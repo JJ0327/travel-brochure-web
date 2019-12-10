@@ -1,16 +1,10 @@
 import React from 'react';
 import './PostHeader.css';
-import NavigationBar from '../../components/NavigationBar/NavigationBar';
-import { Redirect } from 'react-router-dom';
 
-const PostHeader = ({ authenticated }) => {
+const PostHeader = () => {
   return (
     <>
-      {authenticated === null && <Redirect to="/auth" />}
-      <div>
-        <NavigationBar />
-        POSTS
-      </div>
+      <div className="PostHeader">게시물</div>
     </>
   );
 };
