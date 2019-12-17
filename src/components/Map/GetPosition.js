@@ -1,6 +1,5 @@
 const GetPosition = async () => {
   let curposition;
-  console.log('enter');
   const getData = callback => {
     if (navigator.geolocation) {
       // GPS를 지원하면
@@ -11,7 +10,6 @@ const GetPosition = async () => {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
             };
-            console.log(curposition);
             resolve(curposition);
           },
           function(error) {
@@ -29,14 +27,15 @@ const GetPosition = async () => {
     }
   };
 
-  getData()
-    .then(function(data) {
-      console.log(data);
-      return data; // response 값 출력
-    })
-    .catch(function(err) {
-      console.error(err); // Error 출력
-    });
+  return new Promise(function (resolve, reject) {
+    getData()
+      .then(function(data) {
+        resolve(data); // response 값 출력
+      })
+      .catch(function(err) {
+        console.error(err); // Error 출력
+      });
+  });
 };
 
 export default GetPosition;

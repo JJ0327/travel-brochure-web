@@ -35,8 +35,10 @@ export default function App() {
         path="/posts"
         render={props => <PostPage {...props} authenticated={authenticated} />}
       />
-      <Route path="/map" component={MapPage} />
-
+      <Route
+       path="/map"
+       render={props => <MapPage {...props} authenticated={authenticated} />}
+      />
       <Route
         path="/auth"
         render={props => <AuthPage {...props} authenticated={authenticated} />}
